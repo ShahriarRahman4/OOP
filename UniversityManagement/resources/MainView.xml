@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.universitymanagement.MainController">
+    <tabs>
+        <Tab text="Students" closable="false">
+            <VBox spacing="10" style="-fx-padding: 10;">
+                <Label text="Manage Students" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Student ID:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <TextField fx:id="studentIdField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                    <Label text="Name:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                    <TextField fx:id="studentNameField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                    <Label text="Email:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                    <TextField fx:id="studentEmailField" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                </GridPane>
+                <HBox spacing="10">
+                    <Button text="Add Student" onAction="#addStudent" />
+                    <Button text="Update Student" onAction="#updateStudent" />
+                    <Button text="Delete Student" onAction="#deleteStudent" />
+                    <Button text="List Students" onAction="#listStudents" />
+                </HBox>
+                <TextArea fx:id="studentOutput" editable="false" prefHeight="200" />
+            </VBox>
+        </Tab>
+        <Tab text="Courses" closable="false">
+            <VBox spacing="10" style="-fx-padding: 10;">
+                <Label text="Manage Courses" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Course ID:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <TextField fx:id="courseIdField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                    <Label text="Course Name:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                    <TextField fx:id="courseNameField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                    <Label text="Credits:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                    <TextField fx:id="courseCreditsField" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                </GridPane>
+                <HBox spacing="10">
+                    <Button text="Add Course" onAction="#addCourse" />
+                    <Button text="Update Course" onAction="#updateCourse" />
+                    <Button text="Delete Course" onAction="#deleteCourse" />
+                    <Button text="List Courses" onAction="#listCourses" />
+                </HBox>
+                <TextArea fx:id="courseOutput" editable="false" prefHeight="200" />
+            </VBox>
+        </Tab>
+        <Tab text="Enrollments" closable="false">
+            <VBox spacing="10" style="-fx-padding: 10;">
+                <Label text="Manage Enrollments" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Student ID:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <TextField fx:id="enrollStudentIdField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                    <Label text="Course ID:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                    <TextField fx:id="enrollCourseIdField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                </GridPane>
+                <HBox spacing="10">
+                    <Button text="Enroll Student" onAction="#enrollStudent" />
+                    <Button text="List Enrollments" onAction="#listEnrollments" />
+                </HBox>
+                <TextArea fx:id="enrollmentOutput" editable="false" prefHeight="200" />
+            </VBox>
+        </Tab>
+    </tabs>
+</TabPane>

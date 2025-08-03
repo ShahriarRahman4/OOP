@@ -1,0 +1,37 @@
+.root {
+    -fx-font-family: "Arial";
+    -fx-background-color: #f4f4f4;
+}
+.header {
+    -fx-background-color: #003087; /* University blue */
+    -fx-padding: 10;
+}
+.header-label {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+.sidebar {
+    -fx-background-color: #e0e0e0;
+    -fx-padding: 10;
+}
+.button {
+    -fx-background-color: #005566; /* Teal */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 8 16;
+    -fx-background-radius: 5;
+}
+.button:hover {
+    -fx-background-color: #007777;
+}
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5;
+    -fx-padding: 8;
+}
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+}
