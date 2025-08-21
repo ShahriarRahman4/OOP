@@ -11,7 +11,7 @@ public class LibraryApp {
         loadSampleBooks(catalog);
 
         while (true) {
-            System.out.println("Library Menu");
+            System.out.println("Library Menu : ");
             System.out.println("1. Add Book");
             System.out.println("2. Search by Title");
             System.out.println("3. Search by Author");
@@ -19,79 +19,64 @@ public class LibraryApp {
             System.out.println("5. Borrow Book");
             System.out.println("6. Return Book");
             System.out.println("7. Show All Books");
-            System.out.println("8. Show Top Borrowed Books");
+            System.out.println("8. Show Top Borrowed");
             System.out.println("9. Exit");
-            System.out.print("Choose option: ");
+            System.out.print("Choose: ");
 
             int choice = sc.nextInt();
             sc.nextLine();
 
-            switch (choice) {
-                case 1:
-                    System.out.print("ISBN: ");
-                    String isbn = sc.nextLine();
-                    System.out.print("Title: ");
-                    String title = sc.nextLine();
-                    System.out.print("Author: ");
-                    String author = sc.nextLine();
-                    System.out.print("Genre: ");
-                    String genre = sc.nextLine();
-                    System.out.print("Copies: ");
-                    int copies = sc.nextInt();
-                    sc.nextLine();
-                    Book newBook = new Book(isbn, title, author, genre, copies);
-                    catalog.addBook(newBook);
-                    break;
+            if (choice == 1) {
+                System.out.print("ISBN: ");
+                String isbn = sc.nextLine();
+                System.out.print("Title: ");
+                String title = sc.nextLine();
+                System.out.print("Author: ");
+                String author = sc.nextLine();
+                System.out.print("Genre: ");
+                String genre = sc.nextLine();
+                System.out.print("Copies: ");
+                int copies = sc.nextInt();
+                sc.nextLine();
+                catalog.addBook(new Book(isbn, title, author, genre, copies));
 
-                case 2:
-                    System.out.print("Enter title keyword: ");
-                    String keyword = sc.nextLine();
-                    catalog.searchByTitle(keyword);
-                    break;
+            } else if (choice == 2) {
+                System.out.print("Enter title keyword: ");
+                catalog.searchByTitle(sc.nextLine());
 
-                case 3:
-                    System.out.print("Enter author name: ");
-                    String auth = sc.nextLine();
-                    catalog.searchByAuthor(auth);
-                    break;
+            } else if (choice == 3) {
+                System.out.print("Enter author name: ");
+                catalog.searchByAuthor(sc.nextLine());
 
-                case 4:
-                    System.out.print("Enter genre: ");
-                    String gen = sc.nextLine();
-                    catalog.searchByGenre(gen);
-                    break;
+            } else if (choice == 4) {
+                System.out.print("Enter genre: ");
+                catalog.searchByGenre(sc.nextLine());
 
-                case 5:
-                    System.out.print("Enter ISBN to borrow: ");
-                    String borrowISBN = sc.nextLine();
-                    catalog.borrowBook(borrowISBN);
-                    break;
+            } else if (choice == 5) {
+                System.out.print("Enter ISBN: ");
+                catalog.borrowBook(sc.nextLine());
 
-                case 6:
-                    System.out.print("Enter ISBN to return: ");
-                    String returnISBN = sc.nextLine();
-                    catalog.returnBook(returnISBN);
-                    break;
+            } else if (choice == 6) {
+                System.out.print("Enter ISBN: ");
+                catalog.returnBook(sc.nextLine());
 
-                case 7:
-                    catalog.showAllBooks();
-                    break;
+            } else if (choice == 7) {
+                catalog.showAllBooks();
 
-                case 8:
-                    System.out.print("How many top borrowed books to show? ");
-                    int n = sc.nextInt();
-                    catalog.showTopBorrowedBooks(n);
-                    break;
+            } else if (choice == 8) {
+                System.out.print("Show top N: ");
+                catalog.showTopBorrowed(sc.nextInt());
 
-                case 9:
-                    System.out.println("Exiting Library System. Goodbye!");
-                    sc.close();
-                    return;
+            } else if (choice == 9) {
+                System.out.println("Goodbye!");
+                break;
 
-                default:
-                    System.out.println("Invalid option.");
+            } else {
+                System.out.println("Invalid option.");
             }
         }
+
+        sc.close();
     }
 
     public static void loadSampleBooks(LibraryCatalog catalog) {
@@ -105,6 +90,5 @@ public class LibraryApp {
         catalog.addBook(new Book("977", "The Iliad", "Homer", "Epic", 3));
         catalog.addBook(new Book("978", "Eloquent JavaScript", "Marijn Haverbeke", "Programming", 10));
         catalog.addBook(new Book("979", "Effective Java", "Joshua Bloch", "Programming", 5));
-        System.out.println("Sample books loaded into the catalog.");
     }
 }
