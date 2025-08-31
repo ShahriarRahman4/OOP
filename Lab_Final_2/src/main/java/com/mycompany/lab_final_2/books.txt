@@ -1,0 +1,3 @@
+122,The Great Gatsby,F. Scott Fitzgerald,Classic,5
+124,To Kill a Mockingbird,Harper Lee,Classic,3
+125,1984,George Orwell,Dystopian,7
